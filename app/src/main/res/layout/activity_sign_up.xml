@@ -19,6 +19,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_arrow_back"
+            android:contentDescription="@string/back_arrow_description"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
             android:id="@+id/title_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Create account"
+            android:text="@string/signup_title"
             android:textSize="28sp"
             android:textStyle="bold"
             android:textColor="@color/deep_navy"
@@ -45,7 +46,7 @@
             android:id="@+id/subtitle_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Sign up to get started!"
+            android:text="@string/signup_subtitle"
             android:textSize="16sp"
             android:textColor="@color/deep_navy"
             android:layout_marginStart="32dp"
@@ -78,7 +79,7 @@
                 android:id="@+id/name_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
+                android:hint="@string/name_hint"
                 android:inputType="textPersonName" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +106,7 @@
                 android:id="@+id/email_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email address"
+                android:hint="@string/email_hint"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,7 +134,7 @@
                 android:id="@+id/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,7 +162,7 @@
                 android:id="@+id/confirm_password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm password"
+                android:hint="@string/confirm_password_hint"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -170,7 +171,7 @@
             android:id="@+id/signup_button"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:text="Sign up"
+            android:text="@string/signup_button"
             android:textSize="16sp"
             android:textAllCaps="false"
             app:cornerRadius="8dp"
@@ -188,7 +189,7 @@
             android:id="@+id/google_signup_button"
             android:layout_width="0dp"
             android:layout_height="56dp"
-            android:text="Sign up using Google"
+            android:text="@string/signup_with_google"
             android:textSize="16sp"
             android:textAllCaps="false"
             app:cornerRadius="8dp"
@@ -212,7 +213,7 @@
             android:id="@+id/login_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already a member? Log in"
+            android:text="@string/already_member"
             android:textSize="16sp"
             android:textColor="@color/vivid_sky_blue"
             android:layout_marginTop="32dp"

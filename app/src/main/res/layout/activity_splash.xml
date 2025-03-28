@@ -14,6 +14,7 @@
         android:layout_height="100dp"
         android:src="@drawable/splash_logo"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/splash_logo_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
