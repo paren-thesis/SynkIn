@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme Colors -->
+    <color name="ice_blue">#D6E6F2</color>
+    <color name="deep_navy">#000A26</color>
+    <color name="emerald_cyan">#00D189</color>
+    <color name="vivid_sky_blue">#00BBE9</color>
+
+    <!-- System Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
