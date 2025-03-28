@@ -1,109 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ice_blue"
-    tools:context=".OnboardingActivity">
+    android:fillViewport="true"
+    android:background="@color/ice_blue">
 
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/splash_logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Main Image -->
-    <ImageView
-        android:id="@+id/main_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/splash_logo"
-        android:scaleType="fitCenter"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/title_text" />
-
-    <!-- Title Text -->
-    <TextView
-        android:id="@+id/title_text"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Let's get started"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="@color/deep_navy"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/main_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/subtitle_text" />
+        tools:context=".OnboardingActivity">
 
-    <!-- Subtitle Text -->
-    <TextView
-        android:id="@+id/subtitle_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Everything starts from here"
-        android:textSize="18sp"
-        android:textColor="@color/deep_navy"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="48dp"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/title_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/login_button" />
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/splash_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Log In Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_button"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:text="Log in"
-        android:textSize="16sp"
-        android:textAllCaps="false"
-        app:cornerRadius="8dp"
-        android:backgroundTint="@color/emerald_cyan"
-        android:textColor="@color/white"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/signup_button" />
+        <!-- Main Image -->
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/splash_logo"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/title_text" />
 
-    <!-- Sign Up Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/signup_button"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:text="Sign up"
-        android:textSize="16sp"
-        android:textAllCaps="false"
-        app:cornerRadius="8dp"
-        android:backgroundTint="@color/deep_navy"
-        android:textColor="@color/white"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <!-- Title Text -->
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Let's get started"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/main_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/subtitle_text" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Subtitle Text -->
+        <TextView
+            android:id="@+id/subtitle_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Everything starts from here"
+            android:textSize="18sp"
+            android:textColor="@color/deep_navy"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="48dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/login_button" />
+
+        <!-- Log In Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="Log in"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/emerald_cyan"
+            android:textColor="@color/white"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/signup_button" />
+
+        <!-- Sign Up Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="Sign up"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:cornerRadius="8dp"
+            android:backgroundTint="@color/deep_navy"
+            android:textColor="@color/white"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
