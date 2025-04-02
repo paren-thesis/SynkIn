@@ -5,6 +5,7 @@
     <color name="deep_navy">#000A26</color>
     <color name="emerald_cyan">#00D189</color>
     <color name="vivid_sky_blue">#00BBE9</color>
+    <color name="light_pink">#FFB6C1</color>
 
     <!-- System Colors -->
     <color name="black">#FF000000</color>

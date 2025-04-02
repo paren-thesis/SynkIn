@@ -7,12 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LoginActivity extends AppCompatActivity {
+import com.synkin.in.app.utils.NetworkUtils;
+
+public class LoginActivity extends BaseActivity {
 
     private ImageView backArrow;
     private TextView forgotPassword;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
         initializeViews();
         setupClickListeners();
+        checkInternetConnection();
     }
 
     private void initializeViews() {
@@ -52,9 +54,13 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (NetworkUtils.isNetworkAvailable(LoginActivity.this)) {
+                    Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
 
@@ -62,9 +68,13 @@ public class LoginActivity extends AppCompatActivity {
         signupLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (NetworkUtils.isNetworkAvailable(LoginActivity.this)) {
+                    Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
     }
@@ -73,5 +83,10 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    @Override
+    protected void onNetworkRestored() {
+        // Handle network restoration if needed
     }
 }

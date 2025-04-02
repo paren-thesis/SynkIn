@@ -7,12 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SignUpActivity extends AppCompatActivity {
+import com.synkin.in.app.utils.NetworkUtils;
+
+public class SignUpActivity extends BaseActivity {
 
     private ImageView backArrow;
     private TextView loginLink;
@@ -30,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         initializeViews();
         setupClickListeners();
+        checkInternetConnection();
     }
 
     private void initializeViews() {
@@ -50,10 +52,14 @@ public class SignUpActivity extends AppCompatActivity {
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                finish(); // Close this activity to avoid stacking
+                if (NetworkUtils.isNetworkAvailable(SignUpActivity.this)) {
+                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
     }
@@ -62,5 +68,10 @@ public class SignUpActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    @Override
+    protected void onNetworkRestored() {
+        // Handle network restoration if needed
     }
 }

@@ -81,7 +81,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/name_hint"
                 android:inputType="textPersonName"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email Input -->
@@ -109,7 +111,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/email_hint"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password Input -->
@@ -138,7 +142,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password Input -->
@@ -167,7 +173,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/confirm_password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Sign Up Button -->

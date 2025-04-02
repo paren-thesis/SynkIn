@@ -18,12 +18,12 @@
             android:id="@+id/logo"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:src="@drawable/ic_splash"
             android:contentDescription="@string/logo_description"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Main Image -->
         <ImageView

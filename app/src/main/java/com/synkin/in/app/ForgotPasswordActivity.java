@@ -7,12 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+import com.synkin.in.app.utils.NetworkUtils;
+
+public class ForgotPasswordActivity extends BaseActivity {
 
     private ImageView backArrow;
     private TextView loginLink;
@@ -30,6 +31,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         initializeViews();
         setupClickListeners();
+        checkInternetConnection();
     }
 
     private void initializeViews() {
@@ -50,10 +52,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                if (NetworkUtils.isNetworkAvailable(ForgotPasswordActivity.this)) {
+                    Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
     }
@@ -62,5 +68,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+
+    @Override
+    protected void onNetworkRestored() {
+        // Handle network restoration if needed
     }
 }

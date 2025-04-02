@@ -1,7 +1,6 @@
 package com.synkin.in.app;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -11,7 +10,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
-public class SplashActivity extends AppCompatActivity {
+import com.synkin.in.app.utils.NetworkUtils;
+
+public class SplashActivity extends BaseActivity {
 
     private static final int SPLASH_DELAY = 3000; // 3 seconds
 
@@ -26,14 +27,27 @@ public class SplashActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Navigate to OnboardingActivity after delay
+        // Check internet connection after a short delay
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, OnboardingActivity.class);
-                startActivity(intent);
-                finish(); // Close splash activity
+                if (NetworkUtils.isNetworkAvailable(SplashActivity.this)) {
+                    proceedToOnboarding();
+                } else {
+                    showNoInternetDialog();
+                }
             }
         }, SPLASH_DELAY);
+    }
+
+    private void proceedToOnboarding() {
+        Intent intent = new Intent(SplashActivity.this, OnboardingActivity.class);
+        startActivity(intent);
+        finish(); // Close splash activity
+    }
+
+    @Override
+    protected void onNetworkRestored() {
+        proceedToOnboarding();
     }
 } 

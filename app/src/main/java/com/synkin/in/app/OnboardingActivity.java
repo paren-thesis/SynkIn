@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
+import com.synkin.in.app.utils.NetworkUtils;
 
-public class OnboardingActivity extends AppCompatActivity {
+public class OnboardingActivity extends BaseActivity {
 
     private MaterialButton loginButton;
     private MaterialButton signupButton;
@@ -30,6 +30,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         initializeViews();
         setupClickListeners();
+        checkInternetConnection();
     }
 
     private void initializeViews() {
@@ -42,10 +43,13 @@ public class OnboardingActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
-                startActivity(intent);
-                // Apply custom transition animation
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (NetworkUtils.isNetworkAvailable(OnboardingActivity.this)) {
+                    Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
 
@@ -53,11 +57,19 @@ public class OnboardingActivity extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnboardingActivity.this, SignUpActivity.class);
-                startActivity(intent);
-                // Apply custom transition animation
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (NetworkUtils.isNetworkAvailable(OnboardingActivity.this)) {
+                    Intent intent = new Intent(OnboardingActivity.this, SignUpActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                } else {
+                    showNoInternetDialog();
+                }
             }
         });
+    }
+
+    @Override
+    protected void onNetworkRestored() {
+        // Handle network restoration if needed
     }
 }

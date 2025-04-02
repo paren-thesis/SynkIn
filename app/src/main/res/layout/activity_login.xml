@@ -81,7 +81,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/email_or_username_hint"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password Input -->
@@ -110,7 +112,9 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password_hint"
                 android:inputType="textPassword"
-                android:textColor="@color/deep_navy" />
+                android:textColor="@color/deep_navy"
+                android:textCursorDrawable="@null"
+                android:textColorHint="@color/vivid_sky_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Forgot Password Link -->
