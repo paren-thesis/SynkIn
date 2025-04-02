@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "190967736177",
+    "firebase_url": "https://synkin-default-rtdb.firebaseio.com",
+    "project_id": "synkin",
+    "storage_bucket": "synkin.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190967736177:android:c425abee33ef7bc574f8d0",
+        "android_client_info": {
+          "package_name": "com.synkin.in.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190967736177-hruep3g2f91g76taqtr6g0njkb3o8esv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.synkin.in.app",
+            "certificate_hash": "d9ec5614f2b9f02a0f160e025f0d57ef93a4d940"
+          }
+        },
+        {
+          "client_id": "190967736177-pd24fhe7vj6tmei9ub6c9p1g981kanir.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2H6raZ9Ji9O-AHh-H3byuqdCmpMqYjK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190967736177-pd24fhe7vj6tmei9ub6c9p1g981kanir.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
