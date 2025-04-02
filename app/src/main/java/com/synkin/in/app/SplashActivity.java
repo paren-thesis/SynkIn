@@ -1,4 +1,4 @@
-package com.synks.in.app;
+package com.synkin.in.app;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.synks.in.app;
+package com.synkin.in.app;
 
 import android.os.Bundle;
 

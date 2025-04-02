@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.synks.in.app'
-    compileSdk 35
+    namespace 'com.synkin.in.app'
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.synks.in.app"
+        applicationId "com.synkin.in.app"
         minSdk 24
         targetSdk 34
         versionCode 1
@@ -30,7 +30,6 @@ android {
 }
 
 dependencies {
-
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -38,11 +37,14 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation platform('com.google.firebase:firebase-bom:33.1.1')
+    
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.7.2')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-messaging'
-    implementation 'com.google.firebase:firebase-appcheck-safetynet'
 
+    // Add core-ktx for better compatibility
+    implementation 'androidx.core:core-ktx:1.12.0'
 }

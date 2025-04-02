@@ -1,8 +1,10 @@
-package com.synks.in.app;
+package com.synkin.in.app;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,18 +12,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.button.MaterialButton;
+public class ForgotPasswordActivity extends AppCompatActivity {
 
-public class OnboardingActivity extends AppCompatActivity {
-
-    private MaterialButton loginButton;
-    private MaterialButton signupButton;
+    private ImageView backArrow;
+    private TextView loginLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_onboarding);
+        setContentView(R.layout.activity_forgot_password);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -33,31 +33,34 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        loginButton = findViewById(R.id.login_button);
-        signupButton = findViewById(R.id.signup_button);
+        backArrow = findViewById(R.id.back_arrow);
+        loginLink = findViewById(R.id.login_link);
     }
 
     private void setupClickListeners() {
-        // Navigate to Login Activity
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        // Back arrow - go back to previous screen
+        backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnboardingActivity.this, LoginActivity.class);
-                startActivity(intent);
-                // Apply custom transition animation
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                onBackPressed();
             }
         });
 
-        // Navigate to Sign Up Activity
-        signupButton.setOnClickListener(new View.OnClickListener() {
+        // Login link
+        loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OnboardingActivity.this, SignUpActivity.class);
+                Intent intent = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
-                // Apply custom transition animation
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }
